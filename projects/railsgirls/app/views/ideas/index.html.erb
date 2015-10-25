@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<!--<h1>Portfolio Additions</h1>-->
+
+<table>
+  <thead>
+    <tr>
+      <!--<th>Name</th>
+      <th>Description</th>-->
+      <!--<th>Portfolio</th>-->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+    <!-- <div>
+     <tr>
+        <td><%= idea.name %></td>
+       <td><%= idea.description %></td>
+        <td><%= image_tag idea.picture_url(:thumb) if idea.picture.present? %></td>
+    </tr>
+    <tr>
+        <td><%= link_to 'Show', idea %></td>
+       <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      </div> -->
+
+    <div style="float: left; padding: 10px 10px 10px 10px;">
+      <%= link_to (image_tag idea.picture_url(:thumb)), idea %>
+      <% if user_signed_in? %>
+      <%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+   </div>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

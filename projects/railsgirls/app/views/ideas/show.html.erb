@@ -1,0 +1,18 @@
+
+<p>
+  <strong>
+  <%= @idea.name %>
+    </strong>
+</p>
+
+<p>
+  <%= @idea.description %>
+</p>
+
+<center><p>
+  <%= image_tag(@idea.picture_url, :width => 1000) if @idea.picture.present? %>
+</p></center>
+<% if user_signed_in? %>
+<%= link_to 'Edit', edit_idea_path(@idea) %> |
+<% end %>
+<%= link_to 'Back', ideas_path %>
